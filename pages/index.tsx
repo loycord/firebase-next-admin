@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -11,7 +11,11 @@ const Text = styled.p`
   color: blueviolet;
 `
 
-export default class extends React.Component {
+interface Props {
+  userAgent: string;
+}
+
+export default class extends React.Component<Props> {
   static async getInitialProps({ req }) {
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
     return { userAgent };
