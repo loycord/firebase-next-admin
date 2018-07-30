@@ -46,9 +46,6 @@ export default class extends React.Component<Props> {
   render() {
     return (
       <Container>
-        <Link href="/static/thumbnail.png">
-          <OnClickImage src="/static/thumbnail.png" alt="next good" />
-        </Link>
         Hello World
         <Text>{this.props.userAgent}</Text>
         <Link prefetch href={{ pathname: 'preact', query: { name: 'Zeit' } }}>
