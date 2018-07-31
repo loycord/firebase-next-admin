@@ -2,6 +2,10 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import styled from 'styled-components';
 import withStyle from '../styles';
+// components
+import AppBar from '../components/AppBar';
+// customize
+import { appbar } from '../customize';
 
 const StyledContainer = withStyle(Container);
 
@@ -13,12 +17,6 @@ const Layout = styled.div`
 
   grid-template-columns: 7rem 1fr;
   grid-template-rows: 7rem 1fr;
-`;
-const Navigator = styled.div`
-  grid-column: 2 / -1;
-  grid-row: 0 / 1;
-  box-shadow: 0 5px 100px ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
-  z-index: 9;
 `;
 const Sidebar = styled.div`
   grid-column: 1 / 2;
@@ -42,7 +40,7 @@ class MyApp extends App {
     return (
       <StyledContainer>
         <Layout>
-          <Navigator />
+          <AppBar pathname={pageProps.pathname} data={appbar} />
           <Sidebar />
           <Main>
             <Component {...pageProps} />
