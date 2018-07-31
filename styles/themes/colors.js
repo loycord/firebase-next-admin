@@ -1,4 +1,4 @@
-const PRIMARY = '#F95759';
+const PRIMARY = '#9bbcf2';
 const PRIMARY_LIGHT = '#FFA8A9';
 const PRIMARY_DARK = '#D03F40';
 const SECONDARY = '#E3632D';

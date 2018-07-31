@@ -12,6 +12,9 @@ const Text = styled.p`
   font-size: 14px;
   color: blueviolet;
 `;
+const BigText = styled.p`
+  font-size: 5rem;
+`;
 const OnClickImage = styled.img`
   :hover {
     cursor: pointer;
@@ -73,6 +76,21 @@ export default class extends React.Component<Props> {
         <button onClick={() => this.shallowRouting(false)}>
           Shallow Routing: OPTION[false]
         </button>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
+        <BigText>Big TEXT!</BigText>
       </Container>
     );
   }
