@@ -6,8 +6,8 @@ import { Navigation } from '../customize/types';
 const View = styled.header`
   grid-column: 2 / -1;
   grid-row: 0 / 1;
-  box-shadow: 0 0.5rem 10rem
-    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
+  box-shadow: 0 0.5rem 1rem
+    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
   z-index: 9;
   padding: 0 3rem;
 `;

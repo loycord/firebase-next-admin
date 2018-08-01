@@ -2,14 +2,15 @@ import React from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { Headline, Body } from '../styles/ui';
 
-const Container = styled.div`
+const View = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const BigText = styled.p`
-  font-size: 5rem;
+  max-width: 80rem;
+  padding: 3rem;
+  margin: 0 auto;
 `;
 
 interface Props {
@@ -36,24 +37,24 @@ export default class extends React.Component<Props> {
 
   render() {
     return (
-      <Container>
-        Hello World
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-        <BigText>Big TEXT!</BigText>
-      </Container>
+      <View>
+        <Headline>Manage your website quickly and easily with Next.js</Headline>
+        <Body>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          fugit saepe, reprehenderit fuga aperiam repellendus in sint. Magnam,
+          beatae illum, rem sed repellendus incidunt temporibus error, quis
+          harum corrupti possimus.
+        </Body>
+        <Body>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+          quaerat. Mollitia rem cumque dolor doloribus explicabo eveniet fuga
+          aliquid? Voluptatem ex quis pariatur ipsum eligendi porro voluptate
+          nemo facere nobis. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Deleniti, dolores quibusdam? Ipsam vitae praesentium adipisci
+          velit illo sequi minus earum incidunt tempora repudiandae natus
+          consequuntur quos, reprehenderit, voluptatem amet? Ullam?
+        </Body>
+      </View>
     );
   }
 }

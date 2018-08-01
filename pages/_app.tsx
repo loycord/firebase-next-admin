@@ -22,11 +22,11 @@ const Layout = styled.div`
 `;
 
 interface MainProps {
-  isHome: boolean;
+  isSideBar: boolean;
 }
 const Main = styled.div`
   overflow-y: auto;
-  ${({ isHome }: MainProps) => isHome && 'grid-column: 1 / -1;'};
+  ${({ isSideBar }: MainProps) => !isSideBar && 'grid-column: 1 / -1;'};
 `;
 
 class MyApp extends App {
@@ -38,7 +38,16 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    const isHome = pageProps.pathname === '/';
+    const { pathname = '/' } = pageProps;
+    const pathArr = pathname.split('/');
+    const rootPathname = pathArr[1];
+    const regPath = new RegExp('^/' + rootPathname);
+
+    let isSideBar = false;
+    if (rootPathname !== '') {
+      isSideBar = !!navigation.find(page => regPath.test(page.pathname));
+    }
+
     return (
       <StyledContainer>
         <Layout>
@@ -46,10 +55,10 @@ class MyApp extends App {
             <Logo />
           </HomeBox>
           <AppBar pathname={pageProps.pathname} data={navigation} />
-          {!isHome && (
+          {isSideBar && (
             <SideBar pathname={pageProps.pathname} data={navigation} />
           )}
-          <Main isHome={isHome}>
+          <Main isSideBar={isSideBar}>
             <Component {...pageProps} />
           </Main>
         </Layout>

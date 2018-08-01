@@ -9,8 +9,11 @@ const HomeBox = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0.5rem 0.5rem 2rem
-    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.4)};
+  z-index: 10;
+  background-color: #fff;
+
+  box-shadow: 0.5rem 0.5rem 0.5rem
+    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
 `;
 
 export default ({ children }) => (

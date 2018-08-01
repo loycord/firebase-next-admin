@@ -7,9 +7,9 @@ import colors from '../styles/themes/colors';
 const View = styled.div`
   grid-column: 1 / 2;
   grid-row: 2 / -1;
-  box-shadow: 0.5rem 0 10rem
-    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
-  z-index: 10;
+  box-shadow: 0.5rem 0 1rem
+    ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
+  z-index: 8;
 
   animation: ${({ theme: { ani } }) => ani.moveInLeft} 1s;
 `;
@@ -40,7 +40,7 @@ const NavLinkBox = styled.a`
         background-color: transparent;
       `;
     }
-    return `background-color: ${utils.rgba(colors.PRIMARY, 0.1)}`;
+    return `background-color: ${utils.rgba(colors.PRIMARY, 0.15)}`;
   }};
 
   :hover {
@@ -49,7 +49,7 @@ const NavLinkBox = styled.a`
     background-color: transparent;
   }
   :active {
-    transform: scale(1.2);
+    background-color: ${({ theme: { colors }}) => colors.PRIMARY};
   }
 `;
 
