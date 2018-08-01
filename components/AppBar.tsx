@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { Navigation } from '../customize/types';
 
 const View = styled.header`
   grid-column: 2 / -1;
@@ -26,8 +27,8 @@ interface NavLinkProps {
 const NavLink = styled.a`
   font-size: 1.6rem;
   font-weight: 600;
-  color: ${(props: NavLinkProps) =>
-    props.isActive ? props.theme.colors.PRIMARY : '#828a99'};
+  color: ${({ isActive, theme: { colors } }: NavLinkProps) =>
+    isActive ? colors.PRIMARY : colors.DISABLE};
 
   margin: 0 2rem;
   padding: 2rem 0;
@@ -41,22 +42,26 @@ const NavLink = styled.a`
 
 interface Props {
   pathname: string;
-  data: { pathname: string; name: string }[];
+  data?: Navigation[];
 }
 
 class AppBar extends React.PureComponent<Props> {
   render() {
-    const { pathname, data } = this.props;
+    const { pathname = '/', data } = this.props;
+    const pathArr = pathname.split('/');
+    const rootPathname = pathArr[1];
+    
     return (
       <View>
         <NavBar>
-          {data.map(link => (
-            <Link key={link.name} href={link.pathname}>
-              <NavLink isActive={link.pathname === pathname}>
-                {link.name}
-              </NavLink>
-            </Link>
-          ))}
+          {data &&
+            data.map(link => (
+              <Link key={link.name} href={link.pathname}>
+                <NavLink isActive={link.pathname === '/' + rootPathname}>
+                  {link.name}
+                </NavLink>
+              </Link>
+            ))}
         </NavBar>
       </View>
     );

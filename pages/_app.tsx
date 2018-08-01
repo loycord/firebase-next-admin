@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import withStyle from '../styles';
 // components
 import AppBar from '../components/AppBar';
+import SideBar from '../components/SideBar';
+import HomeBox from '../components/HomeBox';
 // customize
-import { appbar } from '../customize';
+import { navigation, Logo } from '../customize';
 
 const StyledContainer = withStyle(Container);
 
@@ -18,14 +20,13 @@ const Layout = styled.div`
   grid-template-columns: 7rem 1fr;
   grid-template-rows: 7rem 1fr;
 `;
-const Sidebar = styled.div`
-  grid-column: 1 / 2;
-  grid-row: 1 / -1;
-  box-shadow: 5px 0 100px ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
-  z-index: 10;
-`;
+
+interface MainProps {
+  isHome: boolean;
+}
 const Main = styled.div`
   overflow-y: auto;
+  ${({ isHome }: MainProps) => isHome && 'grid-column: 1 / -1;'};
 `;
 
 class MyApp extends App {
@@ -37,12 +38,18 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
+    const isHome = pageProps.pathname === '/';
     return (
       <StyledContainer>
         <Layout>
-          <AppBar pathname={pageProps.pathname} data={appbar} />
-          <Sidebar />
-          <Main>
+          <HomeBox>
+            <Logo />
+          </HomeBox>
+          <AppBar pathname={pageProps.pathname} data={navigation} />
+          {!isHome && (
+            <SideBar pathname={pageProps.pathname} data={navigation} />
+          )}
+          <Main isHome={isHome}>
             <Component {...pageProps} />
           </Main>
         </Layout>

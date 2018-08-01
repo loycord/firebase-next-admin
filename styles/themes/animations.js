@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-const moveInLeft = keyframes`
+const moveInLeftSpring = keyframes`
   0% {
     opacity: 0;
     transform: translateX(-10rem) rotate(0deg);
@@ -16,7 +16,19 @@ const moveInLeft = keyframes`
   }
 `;
 
-const moveInRight = keyframes`
+const moveInLeft = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem) rotate(0deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+`;
+
+const moveInRightSpring = keyframes`
   0% {
     opacity: 0;
     transform: translateX(10rem);
@@ -24,6 +36,18 @@ const moveInRight = keyframes`
 
   80% {
     transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+`;
+
+const moveInRight = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
   }
 
   100% {

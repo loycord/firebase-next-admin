@@ -15,6 +15,8 @@ const GRAY = '#C1C7C9';
 const DARK_GRAY = '#A7B0B2';
 const BLACK = '#000';
 
+const DISABLE = '#828a99';
+
 export default {
   PRIMARY,
   PRIMARY_LIGHT,
@@ -30,5 +32,6 @@ export default {
   MID_GRAY,
   GRAY,
   DARK_GRAY,
-  BLACK
+  BLACK,
+  DISABLE
 };
