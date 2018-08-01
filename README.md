@@ -1,5 +1,5 @@
-# next-admin
+# firebase-next-admin
 
-Manage your website quickly and easily.
+Manage your application quickly and easily with Next.js
 
-Next.js + Express.js + styled-components
+Next.js + Express.js + firebase + styled-components
