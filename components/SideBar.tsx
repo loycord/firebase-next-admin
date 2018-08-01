@@ -10,8 +10,9 @@ const View = styled.div`
   box-shadow: 0.5rem 0 1rem
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
   z-index: 8;
-
-  animation: ${({ theme: { ani } }) => ani.moveInLeft} 1s;
+  background-color: ${({ theme: { colors } }) => colors.WHITE};
+  
+  animation: ${({ theme: { ani } }) => ani.moveInLeft} 0.8s cubic-bezier(0,.48,0,.99);
 `;
 const NavBar = styled.nav`
   display: flex;

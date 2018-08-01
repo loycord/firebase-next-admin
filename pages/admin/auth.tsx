@@ -13,12 +13,13 @@ const Card = styled.div`
   box-shadow: 0 0.2rem 0.5rem
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};
   margin: 1.5rem 0;
+  background-color: ${({ theme: { colors } }) => colors.WHITE};
 `;
 const ProfileImg = styled.img`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: ${({ theme: { colors } }) => colors.MID_GRAY};
+  background-color: ${({ theme: { colors } }) => colors.LIGHT_GRAY};
 `;
 
 interface Props {

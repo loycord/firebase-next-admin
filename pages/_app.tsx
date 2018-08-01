@@ -16,6 +16,7 @@ const Layout = styled.div`
 
   width: 100%;
   height: 100vh;
+  background-color: #f7faff;
 
   grid-template-columns: 7rem 1fr;
   grid-template-rows: 7rem 1fr;

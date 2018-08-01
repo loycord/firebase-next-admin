@@ -10,7 +10,7 @@ const HomeBox = styled.div`
   align-items: center;
   cursor: pointer;
   z-index: 10;
-  background-color: #fff;
+  background-color: ${({ theme: { colors } }) => colors.WHITE};
 
   box-shadow: 0.5rem 0.5rem 0.5rem
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.3)};

@@ -10,6 +10,7 @@ const View = styled.header`
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
   z-index: 9;
   padding: 0 3rem;
+  background-color: ${({ theme: { colors } }) => colors.WHITE};
 `;
 const NavBar = styled.nav`
   display: flex;

@@ -11,7 +11,6 @@ export default () => injectGlobal`
     font-size: 62.5%;
   }
 
-
   body {
     line-height: normal;
   }
