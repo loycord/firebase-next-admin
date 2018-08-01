@@ -6,7 +6,7 @@ import 'isomorphic-unfetch';
 import { Title, Body } from '../../styles/ui';
 
 const View = styled.div`
-  margin: 1.5rem 3rem;
+  padding: 1.5rem 3rem;
 `;
 const Card = styled.div`
   padding: 1.5rem;
@@ -18,6 +18,7 @@ const ProfileImg = styled.img`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  background-color: ${({ theme: { colors } }) => colors.MID_GRAY};
 `;
 
 interface Props {
