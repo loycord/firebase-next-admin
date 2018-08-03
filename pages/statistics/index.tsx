@@ -9,7 +9,7 @@ export default class extends React.Component {
   render() {
     return (
       <BasicView>
-        <Headline>Firebase Admin</Headline>
+        <Headline>Firebase Statistics</Headline>
       </BasicView>
     );
   }

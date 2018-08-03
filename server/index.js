@@ -20,6 +20,10 @@ app.prepare().then(() => {
     return app.render(req, res, '/preact');
   });
 
+  server.get('/admin/auth', (req, res) => {
+    return app.render(req, res, '/admin/auth');
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res);
   });

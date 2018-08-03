@@ -2,16 +2,7 @@ import React from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Headline, Body } from '../styles/ui';
-
-const View = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 80rem;
-  padding: 3rem;
-  margin: 0 auto;
-`;
+import { Headline, Body, BasicView } from '../styles/ui';
 
 interface Props {
   userAgent: string;
@@ -37,7 +28,7 @@ export default class extends React.Component<Props> {
 
   render() {
     return (
-      <View>
+      <BasicView>
         <Headline>Manage your website quickly and easily with Next.js</Headline>
         <Body>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium
@@ -54,7 +45,7 @@ export default class extends React.Component<Props> {
           velit illo sequi minus earum incidunt tempora repudiandae natus
           consequuntur quos, reprehenderit, voluptatem amet? Ullam?
         </Body>
-      </View>
+      </BasicView>
     );
   }
 }

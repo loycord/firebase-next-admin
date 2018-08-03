@@ -1,7 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
 import { Navigation } from '../customize/types';
+
+const NRouter: any = Router;
+
+NRouter.onRouteChangeStart = url => {
+  console.log(`Loading: ${url}`);
+  NProgress.start();
+};
+NRouter.onRouteChangeComplete = () => NProgress.done();
+NRouter.onRouteChangeError = () => NProgress.done();
 
 const View = styled.header`
   grid-column: 2 / -1;
@@ -51,9 +65,12 @@ class AppBar extends React.PureComponent<Props> {
     const { pathname = '/', data } = this.props;
     const pathArr = pathname.split('/');
     const rootPathname = pathArr[1];
-    
+
     return (
       <View>
+        <Head>
+          <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+        </Head>
         <NavBar>
           {data &&
             data.map(link => (

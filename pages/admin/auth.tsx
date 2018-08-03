@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import 'isomorphic-unfetch';
 import moment from 'moment';
+import { FaUser } from 'react-icons/fa';
 
 import { Title, LargeBody, Body } from '../../styles/ui';
 
@@ -60,7 +61,7 @@ export default class extends React.Component<Props> {
             <Card key={user.uid}>
               <CardHeader>
                 <CardHeaderLeft>
-                  <ProfileImg src={user.photoURL} />
+                  {user.photoURL ? <ProfileImg src={user.photoURL} /> : <FaUser color="" />}
                   <LargeBody style={{ marginRight: '1rem' }}>{user.displayName}</LargeBody>
                   <Body size="1.2rem">{moment(user.metadata.creationTime).format('l')}</Body>
                 </CardHeaderLeft>
