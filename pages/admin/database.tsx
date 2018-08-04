@@ -12,12 +12,12 @@ export default class extends React.Component {
   static async getInitialProps({ pathname, req }) {
     return { pathname: (req && req.url) || pathname };
   }
-  
+
   render() {
     return (
       <View>
         <Link href="/">
-          <a>Home</a>
+          <a>home</a>
         </Link>
       </View>
     );

@@ -55,11 +55,9 @@ class MyApp extends App {
     const regPath = new RegExp('^/' + rootPathname);
 
     let isSideBar = false;
-    let appLen = 0;
     if (rootPathname !== '') {
       let findNavigation = navigation.find(page => regPath.test(page.pathname));
-      isSideBar = !!findNavigation;
-      appLen = findNavigation.app.length;
+      isSideBar = !!findNavigation && findNavigation.app.length > 0;
     }
 
     return (
@@ -69,10 +67,10 @@ class MyApp extends App {
             <Logo />
           </HomeBox>
           <AppBar pathname={pageProps.pathname} data={navigation} />
-          {isSideBar && appLen > 0 && (
+          {isSideBar && (
             <SideBar pathname={pageProps.pathname} data={navigation} />
           )}
-          <Main isSideBar={isSideBar && appLen > 0}>
+          <Main isSideBar={isSideBar}>
             <Component {...pageProps} />
           </Main>
         </Layout>

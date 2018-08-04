@@ -90,7 +90,7 @@ export default class extends React.Component<Props, State> {
   viewTime: number;
 
   static async getInitialProps({ pathname, req }) {
-    const res = await fetch('http://localhost:3000/api/v1/users');
+    const res = await fetch('http://localhost:3000/api/v1/fusers');
     const json = await res.json();
 
     return { pathname: (req && req.url) || pathname, users: json };
@@ -118,6 +118,7 @@ export default class extends React.Component<Props, State> {
 
   render() {
     const { users } = this.props;
+    console.log(users);
     return (
       <View>
         <Title>User List</Title>

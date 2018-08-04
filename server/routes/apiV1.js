@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const firebase = require('../firebase');
+const firebase = require('../../firebase');
 const admin = firebase.admin;
 
-router.get('/users', async (req, res) => {
+router.get('/fusers', async (req, res) => {
   function listAllUsers(nextPageToken) {
     // List batch of users, 1000 at a time.
     return admin.auth().listUsers(1000, nextPageToken)

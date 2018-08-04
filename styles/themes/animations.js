@@ -86,6 +86,18 @@ const moveInBottom = keyframes`
   }
 `;
 
+const moveInTop = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+`;
+
 const pulsate = keyframes`
   0% {
     transform: scale(1);
@@ -103,7 +115,10 @@ const pulsate = keyframes`
 export default {
   fadeInOut,
   moveInLeft,
+  moveInLeftSpring,
   moveInRight,
+  moveInRightSpring,
   moveInBottom,
+  moveInTop,
   pulsate
 };

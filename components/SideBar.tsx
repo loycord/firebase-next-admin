@@ -17,6 +17,7 @@ const View = styled.div`
   ${({ theme: { media } }) => media.phone`
     grid-column: 1 / -1;
     grid-row: 3 / 4;
+    animation: ${({ theme: { ani } }) => ani.moveInTop} 0.8s cubic-bezier(0, 0.48, 0, 0.99);
   `};
 `;
 const NavBar = styled.nav`
@@ -32,10 +33,6 @@ const NavBar = styled.nav`
     flex-direction: row;
     overflow-x: auto;
     overflow-y: hidden;
-    
-    ::-webkit-scrollbar {
-      height: 5px;
-    }
   `};
 `;
 
