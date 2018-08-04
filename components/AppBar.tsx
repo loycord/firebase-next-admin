@@ -23,15 +23,28 @@ const View = styled.header`
   box-shadow: 0 0.5rem 1rem
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
   z-index: 9;
-  padding: 0 3rem;
   background-color: ${({ theme: { colors } }) => colors.WHITE};
+
+  ${({ theme: { media } }) => media.phone`
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  `};
 `;
 const NavBar = styled.nav`
   display: flex;
   flex: 1;
   flex-direction: row;
-  height: 100%;
   align-items: center;
+  height: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+
+  ${({ theme: { media } }) => media.phone`
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+  `};
 `;
 
 interface NavLinkProps {
@@ -45,8 +58,7 @@ const NavLink = styled.a`
   color: ${({ isActive, theme: { colors } }: NavLinkProps) =>
     isActive ? colors.PRIMARY : colors.DISABLE};
 
-  margin: 0 2rem;
-  padding: 2rem 0;
+  padding: 2rem;
   transition: all 0.3s;
   cursor: pointer;
 

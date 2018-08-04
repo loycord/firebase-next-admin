@@ -4,14 +4,13 @@ const firebase = require('../firebase');
 const admin = firebase.admin;
 
 router.get('/users', async (req, res) => {
-  console.log(req, res);
   function listAllUsers(nextPageToken) {
     // List batch of users, 1000 at a time.
     return admin.auth().listUsers(1000, nextPageToken)
       .then(function(listUsersResult) {
         let users = [];
         listUsersResult.users.forEach(function(userRecord) {
-          console.log("user", userRecord.toJSON());
+          // console.log("user", userRecord.toJSON());
 
           users.push(userRecord.toJSON());
         });

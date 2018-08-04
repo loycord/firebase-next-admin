@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Navigation } from '../customize/types';
-import colors from '../styles/themes/colors';
 
 const View = styled.div`
   grid-column: 1 / 2;
@@ -11,14 +10,33 @@ const View = styled.div`
     ${({ theme: { colors, utils } }) => utils.rgba(colors.PRIMARY, 0.1)};
   z-index: 8;
   background-color: ${({ theme: { colors } }) => colors.WHITE};
-  
-  animation: ${({ theme: { ani } }) => ani.moveInLeft} 0.8s cubic-bezier(0,.48,0,.99);
+
+  animation: ${({ theme: { ani } }) => ani.moveInLeft} 0.8s
+    cubic-bezier(0, 0.48, 0, 0.99);
+
+  ${({ theme: { media } }) => media.phone`
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+  `};
 `;
 const NavBar = styled.nav`
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
+  max-width: 100%;
+  height: 100%;
+
+  ${({ theme: { media } }) => media.phone`
+    max-width: 100vw;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+    ::-webkit-scrollbar {
+      height: 5px;
+    }
+  `};
 `;
 
 interface NavLinkBoxProps {
@@ -31,6 +49,8 @@ const NavLinkBox = styled.a`
   margin: 1.5rem 0;
   cursor: pointer;
   /* border: 1px solid; */
+  color: ${({ isActive, theme: { colors } }) =>
+    isActive ? colors.PRIMARY : colors.DISABLE};
   border-radius: 1.4rem;
   transition: all 0.3s;
   box-shadow: none;
@@ -50,8 +70,12 @@ const NavLinkBox = styled.a`
     background-color: transparent;
   }
   :active {
-    background-color: ${({ theme: { colors }}) => colors.PRIMARY};
+    background-color: ${({ theme: { colors } }) => colors.PRIMARY};
   }
+
+  ${({ theme: { media } }) => media.phone`
+    margin: 1rem 1.5rem;
+  `};
 `;
 
 interface Props {
@@ -86,7 +110,7 @@ class SideBar extends React.PureComponent<Props> {
                   <NavLinkBox isActive={isActive}>
                     {link.icon({
                       size: 25,
-                      color: isActive ? colors.PRIMARY : colors.DISABLE
+                      color: 'currentColor'
                     })}
                   </NavLinkBox>
                 </Link>

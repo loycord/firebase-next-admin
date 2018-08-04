@@ -1,5 +1,23 @@
 import { keyframes } from 'styled-components';
 
+const fadeInOut = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+`
+
 const moveInLeftSpring = keyframes`
   0% {
     opacity: 0;
@@ -83,6 +101,7 @@ const pulsate = keyframes`
 `;
 
 export default {
+  fadeInOut,
   moveInLeft,
   moveInRight,
   moveInBottom,

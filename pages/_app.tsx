@@ -20,6 +20,11 @@ const Layout = styled.div`
 
   grid-template-columns: 7rem 1fr;
   grid-template-rows: 7rem 1fr;
+
+  ${({ theme: { media } }) => media.phone`
+    grid-template-rows: 5rem 5rem 6rem 1fr;
+    grid-template-columns: 1fr;
+  `};
 `;
 
 interface MainProps {
@@ -27,7 +32,12 @@ interface MainProps {
 }
 const Main = styled.div`
   overflow-y: auto;
+  max-width: 100%;
   ${({ isSideBar }: MainProps) => !isSideBar && 'grid-column: 1 / -1;'};
+  ${({ isSideBar, theme: { media }}) => media.phone`
+    grid-column: 1 / -1;
+    ${!isSideBar && 'grid-row: 3 / -1'};
+  `};
 `;
 
 class MyApp extends App {
@@ -45,8 +55,11 @@ class MyApp extends App {
     const regPath = new RegExp('^/' + rootPathname);
 
     let isSideBar = false;
+    let appLen = 0;
     if (rootPathname !== '') {
-      isSideBar = !!navigation.find(page => regPath.test(page.pathname));
+      let findNavigation = navigation.find(page => regPath.test(page.pathname));
+      isSideBar = !!findNavigation;
+      appLen = findNavigation.app.length;
     }
 
     return (
@@ -56,10 +69,10 @@ class MyApp extends App {
             <Logo />
           </HomeBox>
           <AppBar pathname={pageProps.pathname} data={navigation} />
-          {isSideBar && (
+          {isSideBar && appLen > 0 && (
             <SideBar pathname={pageProps.pathname} data={navigation} />
           )}
-          <Main isSideBar={isSideBar}>
+          <Main isSideBar={isSideBar && appLen > 0}>
             <Component {...pageProps} />
           </Main>
         </Layout>

@@ -1,3 +1,3 @@
 export * from './typography';
 export * from './buttons';
-export * from './page';
+export * from './views';
